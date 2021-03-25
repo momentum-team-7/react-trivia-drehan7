@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
 
 
-export default function Categories() {
-    let categoryUrl = 'https://opentdb.com/api_category.php';
-    const axios = require('axios');
+export default function Categories(props) {
 
-    const [categories, setCategories] = useState([])
-
-    React.useEffect(() => {
-        axios.get(categoryUrl)
-            .then(res => {
-                const newCategories = res.data.trivia_categories.map(obj => obj.name);
-                setCategories(newCategories)
-            })
-    }, [])
 
     return (
         <div className='categories-container'>
-            {categories.map((category) => (
-                <h2>{category}</h2>
+
+            <h1 className='select-prompt'>Select a Category!</h1>
+            {props.categories.map((category) => (
+                <button key={category.id} id={category.id} className='select-category-button button' onClick={() => props.setSelectedCategory(category.id)}>{category.name}</button>
+
             ))}
         </div>
     )
