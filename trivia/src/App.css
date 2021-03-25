@@ -43,6 +43,19 @@ header {
   border-radius: 15%;
 }
 
+.questions-container {
+  margin: auto;
+  margin-top: 2%;
+  /* background-color: #0077b6; */
+  background-color: #0077b6;
+  width: 70rem;
+  height: 40rem;
+  border: 2px solid white;
+  padding: 6%;
+  border-radius: 15%;
+  font-size: 20px;
+}
+
 .button {
   font-size: 20px;
   outline: none;
