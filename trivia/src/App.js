@@ -24,7 +24,7 @@ export default function App() {
     <>
       <h3 className='score-label'>Score: {score}</h3>
       {selectedCategory ?
-        (<ChosenCategory selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />) : (
+        (<ChosenCategory selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} score={score} setScore={setScore} />) : (
           <Categories categories={categories} setSelectedCategory={setSelectedCategory} />)
       }
     </>
