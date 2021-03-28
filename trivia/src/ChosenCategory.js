@@ -29,12 +29,13 @@ export default function ChosenCategory({ selectedCategory, setSelectedCategory, 
 
 
     const submitAnswer = (e) => {
-        const selectedAnswer = e.target.textContent
-        if (selectedAnswer in answers) {
+        const selectedAnswer = e.target.innerHTML
+        if (answers.includes(selectedAnswer)) {
             setScore(score + 1)
+            console.log("CORRECT")
         }
-        if (index === questions.length - 1) {
-            setCategory(null)
+        if (index >= questions.length - 1) {
+            setSelectedCategory(null)
         }
         setIndex(index + 1)
 
@@ -46,11 +47,7 @@ export default function ChosenCategory({ selectedCategory, setSelectedCategory, 
         incorrect.push(correct)
         const allQ = incorrect
 
-        if (question.type === 'boolean') {
-            return allQ.slice(0, 2)
-        }
-
-        return allQ.slice(0, 4)
+        return (question.type === 'boolean') ? allQ.slice(0, 2) : allQ.slice(0, 4).sort(() => Math.random() - .5)
 
     }
 
@@ -61,13 +58,15 @@ export default function ChosenCategory({ selectedCategory, setSelectedCategory, 
 
             {questions[index] ? (
                 <div className="q-a-container">
-                    <h1>Question: {index + 1}</h1>
+                    <h2>Question: {index + 1} out of 10</h2>
                     <div className="q">
                         <h1>{he.decode(questions[index].question)}</h1>
                     </div>
                     <div className="answer-choices-container">
                         {getAnswerChoices(questions[index]).map((choice) => (
-                            <h4>{choice}</h4>
+                            <div className="buttons-container">
+                                <button onClick={submitAnswer} className="choice-button">{he.decode(choice)}</button>
+                            </div>
                         ))}
                     </div>
                 </div>

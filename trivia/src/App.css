@@ -66,7 +66,30 @@ header {
   margin: 0.2rem;
 }
 
+.q-a-container {
+  transition: all 1s;
+}
+
 .button:hover {
   font-size: 25px;
   color: yellow;
+}
+
+.choice-button {
+  font-size: 30px;
+  width: 96%;
+  padding: 1%;
+  text-align: left;
+  background-color: lightgrey;
+}
+
+.choice-button:hover {
+  border: 2px solid blue;
+}
+
+.buttons-container {
+  display: flex;
+  margin-top: 3%;
+  flex-direction: column;
+  justify-content: space-between;
 }
