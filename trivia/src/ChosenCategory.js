@@ -29,14 +29,24 @@ export default function ChosenCategory({ selectedCategory, setSelectedCategory, 
 
 
     const submitAnswer = (e) => {
+        const response = document.querySelector('.answer-response')
+
         const selectedAnswer = e.target.innerHTML
         if (answers.includes(selectedAnswer)) {
+
+            response.innerHTML = "CORRECT"
+            setTimeout(() => response.innerHTML = "", 500)
             setScore(score + 1)
-            console.log("CORRECT")
         }
+        else {
+            response.innerHTML = "INCORRECT"
+            setTimeout(() => response.innerHTML = "", 500)
+        }
+
         if (index >= questions.length - 1) {
             setSelectedCategory(null)
         }
+
         setIndex(index + 1)
 
     }
@@ -53,6 +63,9 @@ export default function ChosenCategory({ selectedCategory, setSelectedCategory, 
 
     return (
         <div className='questions-container'>
+            <div className='response-container'>
+                <h2 className='answer-response'></h2>
+            </div>
             <h1>{category}</h1>
             <button className="back-button button" onClick={() => setSelectedCategory(null)}>Back</button>
 

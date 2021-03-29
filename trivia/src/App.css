@@ -52,6 +52,7 @@ header {
   height: 40rem;
   border: 2px solid white;
   padding: 6%;
+  padding-top: 2%;
   border-radius: 15%;
   font-size: 20px;
 }
@@ -92,4 +93,12 @@ header {
   margin-top: 3%;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.response-container {
+  text-align: center;
+  font-size: 30px;
+  color: yellow;
+  height: 10%;
+  max-height: 10%;
 }
